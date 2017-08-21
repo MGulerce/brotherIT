@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-edit></app-edit>
+    <hr>
+    <ul class="list-group">
+      <a
+        *ngFor="let oz of ozellik; let i = index"
+        class="list-group-item"
+        style="cursor:pointer"
+        (click)="onDuzenleItem(i)"
+      >
+        {{oz.series}} / {{oz.Cpu}} / {{oz.dpGB}} / {{oz.rGB}} / {{oz.btry}}
+      </a>
+    </ul>
+  </div>
+</div>

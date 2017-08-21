@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-4 form-group">
+          <label for="series">Serisi</label>
+          <input
+            type="text"
+            id="series"
+            class="form-control"
+            name="series"
+            ngModel
+            required
+          >
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="Cpu">CPU Frekansi</label>
+          <input
+            type="number"
+            id="Cpu"
+            class="form-control"
+            name="Cpu"
+            ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
+          >
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="dpGB">Dahili Depolama</label>
+          <input
+            type="number"
+            id="dpGB"
+            class="form-control"
+            name="dpGB"
+            ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
+          >
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="rGB">RAM</label>
+          <input
+            type="number"
+            id="rGB"
+            class="form-control"
+            name="rGB"
+            ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
+          >
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="btry">Batarya</label>
+          <input
+            type="number"
+            id="btry"
+            class="form-control"
+            name="btry"
+            ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            [disabled]="!f.valid"
+            class="btn btn-success"
+            type="submit">{{ editMode ? 'Duzenle' : 'Ekle' }}</button>
+          <button
+            class="btn btn-danger"
+            type="button"
+            (click)="onSil()"
+            *ngIf="editMode"
+          >Sil</button>
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="onClear()"
+          >Temizle</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

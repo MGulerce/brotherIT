@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img
+      [src]="telefon.imagePath"
+      alt="{{telefon.brand}}"
+      class="img-responsive"
+      style="max-height:350px;"
+    >
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <h1>{{telefon.brand}}</h1>
+  </div>
+  <div class="col-xs-6">
+    <h3>{{telefon.series}}</h3>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <label>Serisi--CPU frekansı--Dahili Depolama--RAM--Batarya</label>
+      <li class="list-group-item" *ngFor="let oz of telefon.ozellik">{{oz.series}}-/-{{oz.Cpu}}-/-{{oz.dpGB}}-/-{{oz.rGB}}-/-{{oz.btry}}</li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div appDropdown class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle">Düzenle <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a (click)="onEkleToKarsilastir()" style="cursor: pointer">Karsilastıra Ekle</a></li>
+        <li><a (click)="onDuzenleTelefon()"  style="cursor: pointer">Telefon Düzenle</a></li>
+        <li><a style="cursor: pointer">Telefon Sil</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

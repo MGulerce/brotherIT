@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-primary" (click)="onYeniTelefon()">Yeni Telefon</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <app-item
+      *ngFor="let telEl of telefonlar; let i = index"
+      [tel] = "telEl"
+      [index]="i"
+      ></app-item>
+  </div>
+</div>
