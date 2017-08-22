@@ -4,10 +4,7 @@ import {Subject} from 'rxjs/Subject';
 export class KarsilastirService {
   ozellikChange = new Subject<Ozellik[]>();
   baslaDuzenle = new Subject<number>();
-  private ozellik: Ozellik[] = [
-    new Ozellik('S8+', 2 , 64 , 4 , 3500),
-    new Ozellik('RedMi Note4' , 2 , 64 , 4 , 4100)
-  ];
+  private ozellik: Ozellik[] = [];
   getOzellik() {
     return this.ozellik.slice();
   }
