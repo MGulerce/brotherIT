@@ -40,4 +40,8 @@ export class TelefonService {
     this.telefonlar[index] = newTelefon;
     this.telefonChange.next(this.telefonlar.slice());
   }
+  silTelefon(index: number) {
+    this.telefonlar.splice(index, 1);
+    this.telefonChange.next(this.telefonlar.slice());
+  }
 }

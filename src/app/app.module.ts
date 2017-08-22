@@ -16,6 +16,7 @@ import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
 import { TelefonStartComponent } from './telefon/telefon-start/telefon-start.component';
 import { TelefonEditComponent } from './telefon/telefon-edit/telefon-edit.component';
+import {TelefonService} from './telefon/telefon.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { TelefonEditComponent } from './telefon/telefon-edit/telefon-edit.compon
     HttpModule,
     AppRoutingModule
   ],
-  providers: [KarsilastirService],
+  providers: [KarsilastirService, TelefonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

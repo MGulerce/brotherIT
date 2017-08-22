@@ -32,4 +32,8 @@ export class DetailComponent implements OnInit {
     this.router.navigate(['edit'], {relativeTo: this.route});
     // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route})
   }
+  onSilTelefon() {
+    this.telefonService.silTelefon(this.id);
+    this.router.navigate(['/telefon']);
+  }
 }

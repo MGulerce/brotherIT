@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
-import {TelefonService} from '../telefon.service';
-import {Telefon} from "../telefon.model";
+
+import {TelefonService} from '../telefon.service';;
 
 @Component({
   selector: 'app-telefon-edit',
@@ -14,7 +14,8 @@ export class TelefonEditComponent implements OnInit {
   editMode = false;
   telefonForm: FormGroup;
   constructor(private route: ActivatedRoute,
-              private telefonService: TelefonService) { }
+              private telefonService: TelefonService,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params
@@ -37,9 +38,9 @@ export class TelefonEditComponent implements OnInit {
     } else {
       this.telefonService.telefonEkle(this.telefonForm.value);
     }
+    this.onCancel();
   }
   private initForm() {
-
     let telefonBrand = '';
     let telefonImagePath = '';
     let telefonSeries = '';
@@ -68,14 +69,14 @@ export class TelefonEditComponent implements OnInit {
       'brand': new FormControl(telefonBrand, Validators.required),
       'imagePath': new FormControl(telefonImagePath, Validators.required),
       'series': new FormControl(telefonSeries, Validators.required),
-      'ozellik' : telefonOzellik
+      'ozellik': telefonOzellik
     });
   }
   // burası opsiyonek kaldıralabilr
   onEkleOzellik() {
     (<FormArray>this.telefonForm.get('ozellik')).push(
       new FormGroup({
-        'brand': new FormControl(null, Validators.required),
+        'series': new FormControl(null, Validators.required),
         'Cpu': new FormControl(null, [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/)
@@ -94,5 +95,11 @@ export class TelefonEditComponent implements OnInit {
         ])
       })
     );
+  }
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+  onSilOzellik(index: number) {
+    (<FormArray>this.telefonForm.get('ozellik')).removeAt(index);
   }
 }
